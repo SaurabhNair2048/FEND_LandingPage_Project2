@@ -31,6 +31,18 @@ document.addEventListener('DOMContentLoaded', function(event){
         navbar.setAttribute('style', 'background-color: darkkhaki;');
         inView();
     });
+
+    /* On mouseOver the header, display the navbar*/
+    document.querySelector('.header').addEventListener('mouseover', function(event){
+        let nav = document.querySelector('.navbar');
+        let navChildren = document.querySelector('.navbar').querySelectorAll('*');
+        nav.setAttribute('style', 'visibility: visible;');
+        for(navChild of navChildren){
+            navChild.setAttribute('style', 'visibility: visible;');
+        }
+        navbar.setAttribute('style', 'background-color: darkkhaki;');
+        inView();
+    });
 });
 
 /*On clicking navbar link, scroll the desired section into view*/
