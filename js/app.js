@@ -13,7 +13,11 @@ document.addEventListener('DOMContentLoaded', function(event){
     inView();
 
     /*Once navbar is set, on scroll of content element set visibility of navbar to visible and after 2 seconds make it invisible(hidden)*/
+    let timeout = null;
     document.querySelector('.content').addEventListener('scroll', function(event){
+        if(timeout != null){
+            clearTimeout(timeout);
+        }
         let target = event.target;
         
         let nav = document.querySelector('.navbar');
@@ -22,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function(event){
         for(navChild of navChildren){
             navChild.setAttribute('style', 'visibility: visible;');
         }
-        setTimeout(function makeInvisible(){
+        timeout = setTimeout(function makeInvisible(){
             nav.setAttribute('style', 'visibility: hidden;');
             for(navChild of navChildren){
                 navChild.setAttribute('style', 'visibility: hidden;');
